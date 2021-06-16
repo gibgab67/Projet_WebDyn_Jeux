@@ -114,4 +114,14 @@ public class HomeController extends Controller {
     //    }
     }
     
+	
+	
+	// PROJET WEB DYN
+	public Result home() {
+		return ok(home.render());
+	}
+	
+	public Result foundGame(String firstname) { //void pour TEST
+		return ok(helloworld.render(firstname));
+	}
 }

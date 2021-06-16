@@ -1,0 +1,10 @@
+@()
+@main(" LE JEUX"){
+	<h1>Le Jeux</h1>
+	<a href="#">Se connecter</a>
+	
+	@helper.form(action = routes.HomeController.foundGame()){
+		<input type="text" name="firstname"/>
+		<input type="submit" value="Trouver une partie !"/> 
+	}
+}

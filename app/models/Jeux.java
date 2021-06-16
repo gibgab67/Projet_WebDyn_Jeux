@@ -6,40 +6,35 @@ import javax.persistence.*;
 
 
 @Entity
-public class Person extends Model {
+public class Jeux extends Model {
   
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	public long id;    
-	public String firstname ;
-	public int age ; 
-	public int statut;//0 = anonyme, 1 = connecté
+	public long id;
+	public int nbJoueurs;
+	public int joueursMax;
+	private Person admin ;
+	private ArrayList<Person> joueurs = new ArrayList<Person>();
 		
-		public Person(String firstname, int age, int statut){
-			this.firstname=firstname;
-			this.age=age;
-			this.statut=statut;
-		}
-		
-		public Person(){   
-		}
-		
-		public String getFirstname(){
-			return this.firstname;
-		}
-		
-		public int getAge(){
-			return this.age;
-		}
-		
-		public void setAge(int age){
-			this.age = age;
-		}
-		
-		public void setFirstname(String firstname){
-			this.firstname = firstname;
-		}
-		
-		public static Finder<Long, Person> find = new Finder<Long,Person>(Person.class);
+	public Jeux(Person admin, int jMax){
+		this.admin=admin;
+		this.joueursMax = jMax;
+	}
+	
+	public String getAdmin(){
+		return this.admin;
+	}
+	
+	public void setAdmin(Person admin){
+		this.admin = admin;
+	}
+	
+	public void addJoueur(Person joueur){
+		this.joueurs.add(joueur);
+		nbJoueurs++;
+	}
+	
+	public static Finder<Long, Person> find = new Finder<Long,Person>(Person.class);
+	
 }

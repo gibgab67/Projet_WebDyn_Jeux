@@ -12,17 +12,23 @@ public class Person extends Model {
 
 	@Id
 	public long id;    
-	public String firstname ;
-	public int age ; 
-	public int statut;//0 = membre, 1 = admin
+	private String firstname;
+	private String mdp = null;
+	private String mail = null;
+	public int age = 0;
+	public boolean inscrit;//false = anonyme, true = membre
 		
-		public Person(String firstname, int age, int statut){
+		public Person(String firstname, int age, String mdp, String mail){ // nouveau membre
 			this.firstname=firstname;
 			this.age=age;
-			this.statut=statut;
+			this.inscrit=true;
+			this.mdp=mdp;
+			this.mail=mail;
 		}
 		
-		public Person(){   
+		public Person(String firstname){//nouvelle anonyme
+			this.firstname=firstname;
+			this.inscrit=false;
 		}
 		
 		public String getFirstname(){
