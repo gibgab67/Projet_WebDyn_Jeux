@@ -1,0 +1,11 @@
+@(p: Person)
+
+<title>Person-viewer</title>
+<h1>@p.firstname</h1>
+<ul>
+<li>age : @p.age</li>
+<li>id : @p.id</li>
+<li>statut : @p.statut</li>
+</ul>
+<a href="@routes.HomeController.delete(p.id)">Supprimer l'entrée</a>
+<a href="@routes.HomeController.update(p.id)">Updater l'entrée</a>

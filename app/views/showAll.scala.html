@@ -1,0 +1,8 @@
+@(liste: List[Person])
+
+
+<Title> Liste des @liste.size() personnes </Title>
+<a href ="@routes.HomeController.sayhelloform"> Add Person </a>
+<ul>
+	@for(p <- liste ){ <li><a href ="@routes.HomeController.show(p.id)">@p.firstname, @p.age years old</a> </li> }
+</ul>
